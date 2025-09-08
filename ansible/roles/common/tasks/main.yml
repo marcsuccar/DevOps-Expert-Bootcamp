@@ -1,0 +1,13 @@
+- name: Install packages
+  apt:
+    name:
+      - docker.io
+      - git
+    state: present
+    update_cache: yes
+
+- name: Add user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
